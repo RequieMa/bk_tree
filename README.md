@@ -38,50 +38,48 @@ void main() {
 ## 📦 Features
 
 - **Core Feature 1**: Return a BK-Tree of a folder (using hamming distance)
-<!-- - **Example**:
-  ```dart
-  final client = ApiClient(config);
-  final response = await client.get('/data');
-  ``` -->
-
-<!-- - **Core Feature 2**: Hamming Distances of Image Hashing -->
-<!-- - **Integration**: Works seamlessly with `package:riverpod`
-  ```dart
-  final provider = Provider((ref) => MyService(ref.watch(otherProvider)));
-  ``` -->
-
----
-
-## ⚙️ Configuration
-
-<!-- ### Custom Options
 ```dart
-final config = Config(
-  timeout: Duration(seconds: 30),
-  enableLogging: true,
+final imageHashes = {
+  "cat.jpg": "d3b07384d113edec",
+  "dog.jpg": "c157a79031e1c40f",
+  "cat_copy.jpg": "d3b07384d113edef", // Duplicate
+  "landscape.png": "6f4b726212b23f0a",
+};
+
+// Create BK-Tree with Hamming distance
+final tree = BKTree(
+  imageHashes,
+  hammingDistance, // Need from another place
 );
+
+// Search for duplicates of cat.jpg
+final results = tree.search(
+  queryHash: imageHashes["cat.jpg"]!,
+  tolerance: 2, // Here allow 2-bit difference
+);
+
+print("Duplicate findings:");
+for (var match in results) {
+  match.forEach((file, distance) {
+      print("- Target: cat.jpg. Find match $file (distance: $distance)");
+  });
+}
 ```
 
-### Environment Variables
-```bash
-export API_KEY=your_key_here
-``` -->
+**Output**:
+```cmd
+- Target: cat.jpg. Find match cat.jpg (distance: 0)
+- Target: cat.jpg. Find match cat_copy.jpg (distance: 2)
+```
 
 ---
 
 ## 🧪 Testing
 
-<!-- ```bash
+```bash
 # Run tests with coverage
-dart test --coverage=./coverage
+dart test
 ```
-
-| Metric          | Status                      |
-|-----------------|-----------------------------|
-| Test Coverage   | 100% (core logic)           |
-| Static Analysis | Enforced via `pedantic`     |
-
---- -->
 
 ## 🤝 Contributing
 
@@ -119,6 +117,8 @@ Full text at [LICENSE](LICENSE)
 
 ---
 ## 🚧 Maintenance Status
-Basic functionalities are under development.
+Basic functionalities are done. (Current version is to support author's other packages)
+
+More General Version is under development. 
 
 Please report issues via [GitHub Issues](https://github.com/RequieMa/bk_tree/issues)
