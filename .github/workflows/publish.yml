@@ -17,11 +17,12 @@ jobs:
         with:
           sdk: stable
 
+      - run: dart pub get
+
       - name: Format check
         run: dart format --output=none --set-exit-if-changed .
         
       - name: Static analysis
-        run: dart pub get
         run: dart analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
