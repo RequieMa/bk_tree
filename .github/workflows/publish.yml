@@ -34,7 +34,7 @@ jobs:
         continue-on-error: false
 
       - name: Upload test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: test-results/results.xml
@@ -45,7 +45,7 @@ jobs:
           DOC_DIR: docs
 
       - name: Archive docs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 
         with:
           name: api-docs
           path: doc/api/
