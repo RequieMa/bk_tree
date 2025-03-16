@@ -1,6 +1,6 @@
 # bk_tree
 
-<!-- [![Pub Version](https://img.shields.io/pub/v/your_package.svg?style=flat)](https://pub.dev/packages/your_package)  -->
+[![Pub Version](https://img.shields.io/pub/v/bk_tree)](https://pub.dev/packages/bk_tree) 
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue?style=flat-square)](LICENSE)
 
 A Dart BK-Tree implementation for efficient nearest neighbor searches using Hamming distance, optimized for bulk file hash processing and duplicate detection.
@@ -12,11 +12,23 @@ A Dart BK-Tree implementation for efficient nearest neighbor searches using Hamm
 
 ## 🚀 Getting Started
 
-<!-- ### Installation
+### Installation
+**Method 1 (Recommended)**
+With Dart:
+```cmd
+dart pub add bk_tree
+```
+
+With Flutter:
+```cmd
+flutter pub add bk_tree
+```
+
+**Method 2**
 Add to `pubspec.yaml`:
 ```yaml
 dependencies:
-  your_package: ^latest_version
+  bk_tree: ^0.1.0
 ```
 Then run:
 ```bash
@@ -25,13 +37,19 @@ dart pub get
 
 ### Basic Usage
 ```dart
-import 'package:your_package/your_package.dart';
+import "package:bk_tree/bk_tree.dart";
 
 void main() {
-  final service = ExampleService();
-  print(service.getMessage()); // Output: Hello from YourPackage!
+  final tree = BKTree(
+    yourHashMap,
+    yourDistanceFunction,
+  );
+  final results = tree.search(
+    queryHash: yourQueryHash,
+    tolerance: n, // Your allowed n-bit difference
+  );
 }
-``` -->
+```
 
 ---
 

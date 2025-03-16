@@ -1,3 +1,10 @@
+## 0.1.1
+
+* Infrastructure
+  - Configured GitHub Actions workflow
+  - Added BSD-3-Clause license verification
+  - Integrated lints package for code analysis
+
 ## 0.1.0
 
 * Initial implementation of BK-Tree data structure with:
