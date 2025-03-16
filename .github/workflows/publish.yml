@@ -30,7 +30,8 @@ jobs:
       - name: Run tests
         run: |
           mkdir -p test-results
-          dart test --reporter junit --reporter expanded > test-results/results.xml
+          dart test --reporter json > test-results/results.json
+          dart pub global run junitreport:tojunit --input test-results/results.json  --output test-results/results.xml
         continue-on-error: false
 
       - name: Upload test results
