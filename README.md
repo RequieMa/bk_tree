@@ -1,7 +1,9 @@
 # bk_tree
 
 [![Pub Version](https://img.shields.io/pub/v/bk_tree)](https://pub.dev/packages/bk_tree) 
+[![Pub Points](https://img.shields.io/pub/points/bk_tree)](https://pub.dev/packages/bk_tree/score)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue?style=flat-square)](LICENSE)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/RequieMa/bk_tree/publish.yml)](https://github.com/RequieMa/bk_tree/actions/workflows/publish.yml)
 
 A Dart BK-Tree implementation for efficient nearest neighbor searches using Hamming distance, optimized for bulk file hash processing and duplicate detection.
 
@@ -28,7 +30,7 @@ flutter pub add bk_tree
 Add to `pubspec.yaml`:
 ```yaml
 dependencies:
-  bk_tree: ^0.1.0
+  bk_tree: ^0.1.1
 ```
 Then run:
 ```bash
