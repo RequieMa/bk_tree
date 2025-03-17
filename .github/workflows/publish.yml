@@ -58,6 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
+      - run: echo "${{ secrets.PUB_CREDENTIALS }}" > ~/.config/dart/pub-credentials.json
       - run: dart pub publish --force
         env:
           PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
