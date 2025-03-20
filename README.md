@@ -10,8 +10,6 @@ A Dart BK-Tree implementation for efficient nearest neighbor searches using Hamm
 **Compatibility**: Dart `^3.6.0` 
 <!-- | Flutter `^3.16.0` | [Other Requirements] -->
 
----
-
 ## 🚀 Getting Started
 
 ### Installation
@@ -53,46 +51,42 @@ void main() {
 }
 ```
 
----
-
 ## 📦 Features
 
 - **Core Feature 1**: Return a BK-Tree of a folder (using hamming distance)
-```dart
-final imageHashes = {
-  "cat.jpg": "d3b07384d113edec",
-  "dog.jpg": "c157a79031e1c40f",
-  "cat_copy.jpg": "d3b07384d113edef", // Duplicate
-  "landscape.png": "6f4b726212b23f0a",
-};
+  ```dart
+  final imageHashes = {
+    "cat.jpg": "d3b07384d113edec",
+    "dog.jpg": "c157a79031e1c40f",
+    "cat_copy.jpg": "d3b07384d113edef", // Duplicate
+    "landscape.png": "6f4b726212b23f0a",
+  };
 
-// Create BK-Tree with Hamming distance
-final tree = BKTree(
-  imageHashes,
-  hammingDistance, // Need from another place
-);
+  // Create BK-Tree with Hamming distance
+  final tree = BKTree(
+    imageHashes,
+    hammingDistance, // Need from another place
+  );
 
-// Search for duplicates of cat.jpg
-final results = tree.search(
-  queryHash: imageHashes["cat.jpg"]!,
-  tolerance: 2, // Here allow 2-bit difference
-);
+  // Search for duplicates of cat.jpg
+  final results = tree.search(
+    queryHash: imageHashes["cat.jpg"]!,
+    tolerance: 2, // Here allow 2-bit difference
+  );
 
-print("Duplicate findings:");
-for (var match in results) {
-  match.forEach((file, distance) {
-      print("- Target: cat.jpg. Find match $file (distance: $distance)");
-  });
-}
-```
+  print("Duplicate findings:");
+  for (var match in results) {
+    match.forEach((file, distance) {
+        print("- Target: cat.jpg. Find match $file (distance: $distance)");
+    });
+  }
+  ```
 
 **Output**:
 ```cmd
 - Target: cat.jpg. Find match cat.jpg (distance: 0)
 - Target: cat.jpg. Find match cat_copy.jpg (distance: 2)
 ```
-
----
 
 ## 🧪 Testing
 
@@ -117,8 +111,6 @@ dart test
 ### Code Style
 Follow the **Effective Dart** and `analysis_options.yaml`
 
----
-
 ## 📚 Documentation
 
 <!-- | Resource         | Link                                   |
@@ -126,8 +118,6 @@ Follow the **Effective Dart** and `analysis_options.yaml`
 | API Reference    | [View Docs](https://pub.dev/documentation/your_package) |
 | Example Project  | [/example](example/)                   |
 | Tutorial Series  | [YouTube Playlist](https://youtube.com/your-channel) | -->
-
----
 
 ## 📜 License
 
