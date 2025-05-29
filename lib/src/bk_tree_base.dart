@@ -93,7 +93,7 @@ class BKTree {
     }
     return validRetrievals;
   }
-
+ 
   Candidate _getNextCandidates({
     required String queryHash,
     required BKTreeNode candidateObj,
