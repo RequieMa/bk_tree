@@ -119,29 +119,38 @@ class BKTree {
   void _insertNode(String newNodeKey, String currentKey) {
     var newNodeHash = _hashMap[newNodeKey]!;
     var currentNode = _nodes[currentKey]!;
-    var currentDistance = _distanceFunction(newNodeHash, currentNode.nodeValue);
+    int? nullableDistance;
+    try {
+      final tmpDistance = _distanceFunction(newNodeHash, currentNode.nodeValue);
+      nullableDistance = tmpDistance;
+    } on Exception catch (e) {
+      loggerBKTree.info("_distanceFunction Error: $e, $currentKey");
+    } 
 
-    while (true) {
-      final existingChildKey = currentNode.children.keys.firstWhere(
-        (key) => currentNode.children[key] == currentDistance,
-        orElse: () => "",
-      );
-      if (existingChildKey.isEmpty) {
-        _nodes[currentKey]!.children[newNodeKey] = currentDistance;
-        _nodes[newNodeKey] = BKTreeNode(
-          nodeName: newNodeKey,
-          nodeValue: newNodeHash,
-          parentName: currentKey,
+    if (nullableDistance != null) {
+      var currentDistance = nullableDistance;
+      while (true) {
+        final existingChildKey = currentNode.children.keys.firstWhere(
+          (key) => currentNode.children[key] == currentDistance,
+          orElse: () => "",
         );
-        break;
-      }
+        if (existingChildKey.isEmpty) {
+          _nodes[currentKey]!.children[newNodeKey] = currentDistance;
+          _nodes[newNodeKey] = BKTreeNode(
+            nodeName: newNodeKey,
+            nodeValue: newNodeHash,
+            parentName: currentKey,
+          );
+          break;
+        }
 
-      currentKey = existingChildKey;
-      currentNode = _nodes[currentKey]!;
-      currentDistance = _distanceFunction(
-        newNodeHash,
-        currentNode.nodeValue,
-      );
+        currentKey = existingChildKey;
+        currentNode = _nodes[currentKey]!;
+        currentDistance = _distanceFunction(
+          newNodeHash,
+          currentNode.nodeValue,
+        );
+      }
     }
   }
 

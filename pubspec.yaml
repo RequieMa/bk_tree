@@ -1,6 +1,6 @@
 name: bk_tree
 description: A Dart BK-Tree implementation for efficient nearest neighbor searches using Hamming distance, optimized for bulk file hash processing and duplicate detection.
-version: 0.1.1
+version: 0.1.2
 # 详细描述 (显示在pub.dev详情页)  
 repository: https://github.com/RequieMa/bk_tree
 license: BSD-3-Clause

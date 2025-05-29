@@ -1,3 +1,7 @@
+## 0.1.2
+
+* `_insertNode` allows to skip if distance is not well-defined
+
 ## 0.1.1
 
 * Infrastructure
