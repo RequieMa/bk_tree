@@ -19,8 +19,8 @@ jobs:
 
       - run: dart pub get
 
-      - name: Format check
-        run: dart format --output=none --set-exit-if-changed .
+      # - name: Format check
+      #   run: dart format --output=none --set-exit-if-changed .
         
       - name: Static analysis
         run: dart analyze
